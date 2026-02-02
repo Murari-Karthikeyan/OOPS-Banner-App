@@ -1,43 +1,47 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
-        printBanner();
+        printBanner("OOPS");
     }
 
-    static void printBanner() {
+    static void printBanner(String word) {
 
-        String[] O = {
+        Map<Character, String[]> patterns = new HashMap<>();
+
+        patterns.put('O', new String[]{
                 " OOO ",
                 "O   O",
                 "O   O",
                 "O   O",
                 " OOO "
-        };
+        });
 
-        String[] P = {
+        patterns.put('P', new String[]{
                 "PPPP ",
                 "P   P",
                 "PPPP ",
                 "P    ",
                 "P    "
-        };
+        });
 
-        String[] S = {
+        patterns.put('S', new String[]{
                 " SSS ",
                 "S    ",
                 " SSS ",
                 "    S",
                 " SSS "
-        };
+        });
 
-        // Rendering OOPS manually using character arrays
-        for (int i = 0; i < O.length; i++) {
-            System.out.println(
-                    O[i] + " " +
-                            O[i] + " " +
-                            P[i] + " " +
-                            S[i]
-            );
+        int height = 5;
+
+        for (int row = 0; row < height; row++) {
+            for (char ch : word.toCharArray()) {
+                System.out.print(patterns.get(ch)[row] + " ");
+            }
+            System.out.println();
         }
     }
 }
