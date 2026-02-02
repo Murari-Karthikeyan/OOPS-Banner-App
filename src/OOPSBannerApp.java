@@ -1,6 +1,10 @@
 public class OOPSBannerApp {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        printBanner();
+    }
+
+    static void printBanner() {
         for (String line : new String[]{
                 " OOO   OOO  PPPP   SSS ",
                 "O   O O   O P   P S    ",
